@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import { CartDropdown } from "@/components/shop/CartDropdown";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
@@ -46,35 +47,39 @@ export function Header() {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <Button
-              asChild
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold gap-2 glow-primary"
-            >
-              <a
-                href="https://youtube.com"
-                target="_blank"
-                rel="noopener noreferrer"
+          {/* Right Side - Cart & CTA */}
+          <div className="flex items-center gap-2">
+            <CartDropdown />
+            
+            <div className="hidden md:block">
+              <Button
+                asChild
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold gap-2 glow-primary"
               >
-                <Play className="h-4 w-4" />
-                Slušaj odmah
-              </a>
-            </Button>
-          </div>
+                <a
+                  href="https://youtube.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Play className="h-4 w-4" />
+                  Slušaj odmah
+                </a>
+              </Button>
+            </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 text-foreground"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label={mobileMenuOpen ? "Zatvori meni" : "Otvori meni"}
-          >
-            {mobileMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </button>
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden p-2 text-foreground"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? "Zatvori meni" : "Otvori meni"}
+            >
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
 
