@@ -136,26 +136,13 @@ export function GalleryGrid({ images }: GalleryGridProps) {
     setCurrentIndex((prev) => Math.max(prev - 1, 0));
   };
 
-  const getAspectClass = (aspectRatio: GalleryImage["aspectRatio"]) => {
-    switch (aspectRatio) {
-      case "portrait":
-        return "row-span-2";
-      case "landscape":
-        return "col-span-2";
-      default:
-        return "";
-    }
-  };
-
   return (
     <>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[200px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
         {images.map((image, index) => (
           <motion.div
             key={image.id}
-            className={`relative overflow-hidden rounded-xl cursor-pointer group ${getAspectClass(
-              image.aspectRatio
-            )}`}
+            className="relative aspect-square overflow-hidden rounded-xl cursor-pointer group"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
