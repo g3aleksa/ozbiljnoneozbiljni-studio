@@ -3,6 +3,7 @@ import { Play, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
+import studioBackground from "@/assets/studio-background.jpg";
 import { episodes } from "@/data/episodes";
 
 export function HeroSection() {
@@ -10,8 +11,12 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-card" />
+      {/* Background image with blur */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${studioBackground})` }}
+      />
+      <div className="absolute inset-0 backdrop-blur-sm bg-background/70" />
       
       {/* Decorative elements */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
