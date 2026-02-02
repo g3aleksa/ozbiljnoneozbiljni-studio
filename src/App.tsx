@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartProvider } from "@/context/CartContext";
 import Index from "./pages/Index";
 import Epizode from "./pages/Epizode";
+import Gosti from "./pages/Gosti";
 import Galerija from "./pages/Galerija";
 import Prodavnica from "./pages/Prodavnica";
 import ONama from "./pages/ONama";
@@ -24,6 +25,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/epizode" element={<Epizode />} />
+            <Route path="/gosti" element={<Gosti />} />
             <Route path="/galerija" element={<Galerija />} />
             <Route path="/prodavnica" element={<Prodavnica />} />
             <Route path="/o-nama" element={<ONama />} />
