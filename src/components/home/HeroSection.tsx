@@ -4,11 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 import studioBackground from "@/assets/studio-background.jpg";
-import { episodes } from "@/data/episodes";
+import { DynamicLatestEpisode } from "./DynamicLatestEpisode";
 
 export function HeroSection() {
-  const latestEpisode = episodes[0];
-
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
       {/* Background image with blur */}
@@ -71,14 +69,10 @@ export function HeroSection() {
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold gap-2 glow-primary animate-glow-pulse"
               >
-                <a
-                  href={latestEpisode.youtubeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Link to="/epizode">
                   <Play className="h-5 w-5" />
-                  Slušaj najnoviju epizodu
-                </a>
+                  Gledaj epizode
+                </Link>
               </Button>
               
               <Button
@@ -87,52 +81,16 @@ export function HeroSection() {
                 size="lg"
                 className="border-border hover:bg-secondary gap-2"
               >
-                <Link to="/epizode">
-                  Sve epizode
+                <Link to="/o-nama">
+                  O nama
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
             </motion.div>
           </motion.div>
 
-          {/* Right side - Featured Episode */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-            className="relative"
-          >
-            <div className="relative rounded-2xl overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10" />
-              <img
-                src={latestEpisode.thumbnail}
-                alt={latestEpisode.title}
-                className="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              
-              {/* Play overlay */}
-              <a
-                href={latestEpisode.youtubeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute inset-0 flex items-center justify-center z-20"
-              >
-                <div className="w-20 h-20 rounded-full bg-primary/90 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 glow-primary">
-                  <Play className="h-8 w-8 text-primary-foreground ml-1" />
-                </div>
-              </a>
-            </div>
-            
-            <div className="mt-4">
-              <p className="text-primary text-sm font-semibold uppercase tracking-wider">
-                Najnovija epizoda
-              </p>
-              <h3 className="text-xl font-bold mt-1">{latestEpisode.title}</h3>
-              <p className="text-muted-foreground mt-1">
-                Gost: {latestEpisode.guest}
-              </p>
-            </div>
-          </motion.div>
+          {/* Right side - Dynamic Latest Episode */}
+          <DynamicLatestEpisode />
         </div>
       </div>
     </section>
