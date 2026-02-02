@@ -82,12 +82,23 @@ interface ProductCardProps {
 
 function ProductCard({ product, index }: ProductCardProps) {
   const { addItem } = useCart();
+  const [selectedSize, setSelectedSize] = useState<string | undefined>(
+    product.sizes?.[0]
+  );
 
   const handleAddToCart = () => {
-    addItem(product, product.sizes?.[0], product.colors?.[0]);
+    if (product.sizes && !selectedSize) {
+      toast({
+        title: "Izaberi veličinu",
+        description: "Molimo izaberite veličinu pre dodavanja u korpu.",
+        variant: "destructive",
+      });
+      return;
+    }
+    addItem(product, selectedSize, product.colors?.[0]);
     toast({
       title: "Dodato u korpu!",
-      description: `${product.name} je dodat u vašu korpu.`,
+      description: `${product.name}${selectedSize ? ` (${selectedSize})` : ""} je dodat u vašu korpu.`,
     });
   };
 
@@ -152,17 +163,25 @@ function ProductCard({ product, index }: ProductCardProps) {
           {product.description}
         </p>
 
-        {/* Sizes */}
+        {/* Size Selector */}
         {product.sizes && (
-          <div className="flex flex-wrap gap-1 mb-4">
-            {product.sizes.map((size) => (
-              <span
-                key={size}
-                className="px-2 py-0.5 text-xs rounded bg-secondary text-muted-foreground"
-              >
-                {size}
-              </span>
-            ))}
+          <div className="mb-4">
+            <p className="text-xs text-muted-foreground mb-2">Veličina:</p>
+            <div className="flex flex-wrap gap-2">
+              {product.sizes.map((size) => (
+                <button
+                  key={size}
+                  onClick={() => setSelectedSize(size)}
+                  className={`px-3 py-1.5 text-xs font-medium rounded-md border transition-all ${
+                    selectedSize === size
+                      ? "border-primary bg-primary text-primary-foreground"
+                      : "border-border bg-secondary text-muted-foreground hover:border-primary/50 hover:text-foreground"
+                  }`}
+                >
+                  {size}
+                </button>
+              ))}
+            </div>
           </div>
         )}
 
