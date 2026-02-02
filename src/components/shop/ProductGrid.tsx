@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ShoppingCart, Tag, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { products, categories, Product } from "@/data/products";
+import { useCart } from "@/context/CartContext";
 import { toast } from "@/hooks/use-toast";
 
 export function ProductGrid() {
@@ -80,7 +81,10 @@ interface ProductCardProps {
 }
 
 function ProductCard({ product, index }: ProductCardProps) {
+  const { addItem } = useCart();
+
   const handleAddToCart = () => {
+    addItem(product, product.sizes?.[0], product.colors?.[0]);
     toast({
       title: "Dodato u korpu!",
       description: `${product.name} je dodat u vašu korpu.`,
