@@ -60,7 +60,7 @@ export function Header() {
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold gap-2 glow-primary"
               >
                 <a
-                  href="https://youtube.com"
+                  href="https://www.youtube.com/@Ozbiljnoneozbiljni25"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -116,7 +116,7 @@ export function Header() {
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold gap-2 mt-2"
               >
                 <a
-                  href="https://youtube.com"
+                  href="https://www.youtube.com/@Ozbiljnoneozbiljni25"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
