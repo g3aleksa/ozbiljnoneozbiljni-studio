@@ -8,6 +8,7 @@ import logo from "@/assets/logo.png";
 const navLinks = [
   { to: "/", label: "Početna" },
   { to: "/epizode", label: "Epizode" },
+  { to: "/prodavnica", label: "Prodavnica" },
   { to: "/o-nama", label: "O nama" },
 ];
 
