@@ -77,15 +77,4 @@ export const episodes: Episode[] = [
     date: "2023-12-11",
     duration: "1:18:45",
   },
-  {
-    id: "7",
-    title: "Kreativnost i inspiracija",
-    guest: "Milan Stanković",
-    description: "Razgovaramo o tome odakle dolazi inspiracija i kako održati kreativnost u svakodnevnom životu.",
-    thumbnail: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=450&fit=crop",
-    youtubeUrl: "https://youtu.be/BQWqw4E1gZs?si=uitPMvTyJpmkLoZe",
-    youtubeId: "BQWqw4E1gZs",
-    date: "2023-12-04",
-    duration: "1:25:30",
-  },
 ];
