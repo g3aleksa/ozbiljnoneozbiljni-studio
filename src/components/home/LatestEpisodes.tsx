@@ -28,7 +28,7 @@ export function LatestEpisodes() {
           <Button
             asChild
             variant="ghost"
-            className="mt-4 md:mt-0 gap-2 text-primary hover:text-primary/80"
+            className="mt-4 md:mt-0 gap-2 text-primary hover:text-primary-foreground hover:bg-primary"
           >
             <Link to="/epizode">
               Sve epizode
