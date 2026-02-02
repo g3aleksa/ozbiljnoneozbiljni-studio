@@ -16,7 +16,7 @@ export const episodes: Episode[] = [
     title: "Kako pronaći balans između posla i života",
     guest: "Marko Petrović",
     description: "Razgovaramo o izazovima modernog života i kako pronaći ravnotežu između karijere i privatnog života.",
-    thumbnail: "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&h=450&fit=crop",
+    thumbnail: "https://img.youtube.com/vi/Bwz9PGbSEXk/maxresdefault.jpg",
     youtubeUrl: "https://youtu.be/Bwz9PGbSEXk?si=el20tGrw0vByyjaY",
     youtubeId: "Bwz9PGbSEXk",
     date: "2024-01-15",
