@@ -1,12 +1,15 @@
 import { Layout } from "@/components/layout/Layout";
+import { FeaturedEpisode } from "@/components/episodes/FeaturedEpisode";
+import { EpisodesGrid } from "@/components/episodes/EpisodesGrid";
+import { episodes } from "@/data/episodes";
 
 const Epizode = () => {
+  const latestEpisode = episodes[0];
+
   return (
     <Layout>
-      <div className="container mx-auto px-4 py-20">
-        <h1 className="text-4xl font-bold">Epizode</h1>
-        <p className="text-muted-foreground mt-4">Stranica u izradi - Faza 2</p>
-      </div>
+      <FeaturedEpisode episode={latestEpisode} />
+      <EpisodesGrid />
     </Layout>
   );
 };
