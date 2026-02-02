@@ -103,32 +103,21 @@ interface EpisodeCardProps {
 function EpisodeCard({ episode, index }: EpisodeCardProps) {
   return (
     <motion.article
-      className="group rounded-2xl overflow-hidden bg-background border border-border hover:border-primary/50 transition-all duration-300 hover-lift"
+      className="group rounded-2xl overflow-hidden bg-background border border-border hover:border-primary/50 transition-all duration-300"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      {/* Thumbnail */}
+      {/* Embedded YouTube Player */}
       <div className="relative aspect-video overflow-hidden">
-        <img
-          src={episode.thumbnail}
-          alt={episode.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        <iframe
+          src={`https://www.youtube.com/embed/${episode.youtubeId}?rel=0`}
+          title={episode.title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="w-full h-full"
         />
-        <a
-          href={episode.youtubeUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="absolute inset-0 flex items-center justify-center bg-background/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        >
-          <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center glow-primary">
-            <Play className="h-6 w-6 text-primary-foreground ml-0.5" />
-          </div>
-        </a>
-        <div className="absolute bottom-2 right-2 px-2 py-1 rounded bg-background/80 text-xs font-medium">
-          {episode.duration}
-        </div>
       </div>
 
       {/* Content */}
@@ -141,27 +130,12 @@ function EpisodeCard({ episode, index }: EpisodeCardProps) {
           })}
         </p>
         <p className="text-primary text-sm font-medium mb-2">{episode.guest}</p>
-        <h3 className="text-lg font-bold mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+        <h3 className="text-lg font-bold mb-2 line-clamp-2">
           {episode.title}
         </h3>
-        <p className="text-muted-foreground text-sm line-clamp-2 mb-4">
+        <p className="text-muted-foreground text-sm line-clamp-2">
           {episode.description}
         </p>
-        <Button
-          asChild
-          variant="outline"
-          size="sm"
-          className="w-full gap-2 border-border hover:border-primary hover:bg-primary hover:text-primary-foreground"
-        >
-          <a
-            href={episode.youtubeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Play className="h-4 w-4" />
-            Gledaj na YouTube-u
-          </a>
-        </Button>
       </div>
     </motion.article>
   );
