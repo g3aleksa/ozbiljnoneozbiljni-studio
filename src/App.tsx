@@ -11,6 +11,7 @@ import Gosti from "./pages/Gosti";
 import Galerija from "./pages/Galerija";
 import Prodavnica from "./pages/Prodavnica";
 import ONama from "./pages/ONama";
+import Kontakt from "./pages/Kontakt";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,6 +32,7 @@ const App = () => (
             <Route path="/galerija" element={<Galerija />} />
             <Route path="/prodavnica" element={<Prodavnica />} />
             <Route path="/o-nama" element={<ONama />} />
+            <Route path="/kontakt" element={<Kontakt />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

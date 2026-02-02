@@ -13,6 +13,7 @@ const navLinks = [
   { to: "/galerija", label: "Galerija" },
   { to: "/prodavnica", label: "Prodavnica" },
   { to: "/o-nama", label: "O nama" },
+  { to: "/kontakt", label: "Kontakt" },
 ];
 
 export function Header() {
