@@ -50,7 +50,7 @@ serve(async (req) => {
     const url = new URL(req.url);
     const maxResults = url.searchParams.get("maxResults") || "10";
     // Playlist ID from user - UUxDC1P2tsX13gQ4A58eKWRw
-    const playlistId = url.searchParams.get("playlistId") || "UUxDCiP2tsXl3gQ4A58eKWRw";
+    const playlistId = url.searchParams.get("playlistId") || "PLpGb3HrQ8mw0KZcon-iXlarviAFJS1K0q";
 
     const apiUrl = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${playlistId}&maxResults=${maxResults}&key=${YOUTUBE_API_KEY}`;
 
