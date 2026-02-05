@@ -3,7 +3,7 @@ import { Play, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
-import studioBackground from "@/assets/studio-background.jpg";
+import studioBackground from "@/assets/studio-background.webp";
 import { DynamicLatestEpisode } from "./DynamicLatestEpisode";
 
 export function HeroSection() {
